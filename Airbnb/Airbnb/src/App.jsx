@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import Categories from "../components/Categories";
 import ListingCard from "../components/ListingCards";
+import Footer from "../components/Footer";
 
 function App() {
     const property = {
@@ -23,7 +24,9 @@ function App() {
             <Categories />
             <div className="App">
                 <ListingCard property={property} />
-            </div>            
+            </div>     
+            <Footer/>
+                   
         </div>
     );
 }
