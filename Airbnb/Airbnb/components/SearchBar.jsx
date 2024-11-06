@@ -1,13 +1,13 @@
 // SearchBar.js
 import React, { useState } from 'react';
-import './Searchbar.css';
+import './SearchBar.css';
 
 function SearchBar() {
     const [location, setLocation] = useState('');
 
     const handleSearch = () => {
         console.log("Searching for location:", location);
-        // Add search functionality here
+        // Add search functionality here, like calling an API with the location input
     };
 
     return (
