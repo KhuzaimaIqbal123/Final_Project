@@ -1,32 +1,47 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import SearchBar from "../components/SearchBar";
-import Categories from "../components/Categories";
-import ListingCard from "../components/ListingCards";
-import Footer from "../components/Footer";
+// App.js
+import React, { useState, useEffect } from 'react';
+import Navbar from '../components/Navbar';
+import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
+import Categories from '../components/Categories';
+import ListingCard from '../components/ListingCards';
+
 
 function App() {
-    const property = {
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOA59hxXnn5bZ5TqDYCgEhv0gZ-Fv-uShzlA&s',
-        title: 'Beautiful Beach House',
-        type: 'Entire home',
-        guests: 4,
-        bedrooms: 2,
-        bathrooms: 1,
-        price: 150,
-        rating: 4.8
-    };
+    const [listings, setListings] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    // Fetch mock listing data on component mount
+    useEffect(() => {
+        const fetchListings = async () => {
+            // Simulating an API call with mock data
+            const mockData = [
+                { id: 1, image: 'https://via.placeholder.com/300', title: 'Beach House', type: 'Entire home', guests: 4, bedrooms: 2, bathrooms: 1, price: 150, rating: 4.8 },
+                { id: 2, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+                // Add more mock listings as needed
+            ];
+            setListings(mockData);
+        };
+        
+        fetchListings();
+    }, []);
+
+    // Filter listings based on the selected category
+    const filteredListings = selectedCategory
+        ? listings.filter((listing) => listing.type === selectedCategory)
+        : listings;
 
     return (
         <div>
             <Navbar />
             <SearchBar />
-            <Categories />
+            <Categories onSelectCategory={(category) => setSelectedCategory(category)} />
             <div className="App">
-                <ListingCard property={property} />
-            </div>     
-            <Footer/>
-                   
+                {filteredListings.map((property) => (
+                    <ListingCard key={property.id} property={property} />
+                ))}
+            </div>
+            <Footer />
         </div>
     );
 }
