@@ -7,6 +7,14 @@
     gap: 0.5rem;
 }
 
+/* Categories.css */
+
+.category-button.active {
+    background-color: #007bff; /* Different color for active category */
+    color: #fff;
+}
+
+
 .category-button {
     padding: 0.5rem 1rem;
     background-color: #333;
