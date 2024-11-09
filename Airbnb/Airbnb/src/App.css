@@ -1,0 +1,20 @@
+/* App.css */
+
+.App {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .App {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .App {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

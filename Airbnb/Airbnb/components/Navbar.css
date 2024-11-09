@@ -46,3 +46,14 @@
 .user-menu a:hover {
     color: #f0a500;
 }
+@media (min-width: 768px) {
+    .navbar-links,
+    .user-menu {
+        display: flex;
+        gap: 1rem;
+    }
+    .menu-toggle {
+        display: none;
+    }
+}
+
