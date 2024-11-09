@@ -1,11 +1,12 @@
+// App.js
 import './App.css'
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import React Router components
 import Navbar from '../components/Navbar';
 import SearchBar from '../components/SearchBar';
 import Footer from '../components/Footer';
 import Categories from '../components/Categories';
 import ListingCard from '../components/ListingCards';
-
 
 function App() {
     const [listings, setListings] = useState([]);
@@ -37,17 +38,51 @@ function App() {
         : listings;
 
     return (
-        <div>
-            <Navbar />
-            <SearchBar />
-            <Categories onSelectCategory={(category) => setSelectedCategory(category)} />
-            <div className="App">
-                {filteredListings.map((property) => (
-                    <ListingCard key={property.id} property={property} />
-                ))}
+        <Router>  {/* Wrap the entire application in Router */}
+            <div>
+                <Navbar />
+                <SearchBar />
+                <Categories onSelectCategory={(category) => setSelectedCategory(category)} />
+                <div className="App">
+                    <Routes>
+                        {/* Define routes for different pages */}
+                        <Route 
+                            path="/" 
+                            element={
+                                <div className="listings">
+                                    {filteredListings.map((property) => (
+                                        <ListingCard key={property.id} property={property} />
+                                    ))}
+                                </div>
+                            }
+                        />
+                        <Route 
+                            path="/experiences" 
+                            element={
+                                <div className="listings">
+                                    {/* Add any filtering or other content specific to experiences */}
+                                    {filteredListings.map((property) => (
+                                        <ListingCard key={property.id} property={property} />
+                                    ))}
+                                </div>
+                            }
+                        />
+                        <Route 
+                            path="/online-experiences" 
+                            element={
+                                <div className="listings">
+                                    {/* Add any filtering or other content specific to online experiences */}
+                                    {filteredListings.map((property) => (
+                                        <ListingCard key={property.id} property={property} />
+                                    ))}
+                                </div>
+                            }
+                        />
+                    </Routes>
+                </div>
+                <Footer />
             </div>
-            <Footer />
-        </div>
+        </Router>
     );
 }
 
