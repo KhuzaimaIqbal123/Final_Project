@@ -18,6 +18,11 @@ function App() {
             const mockData = [
                 { id: 1, image: 'https://via.placeholder.com/300', title: 'Beach House', type: 'Entire home', guests: 4, bedrooms: 2, bathrooms: 1, price: 150, rating: 4.8 },
                 { id: 2, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+                { id: 3, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+                { id: 4, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+                { id: 5, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+                { id: 6, image: 'https://via.placeholder.com/300', title: 'Mountain Cabin', type: 'Cabin', guests: 6, bedrooms: 3, bathrooms: 2, price: 200, rating: 4.9 },
+
                 // Add more mock listings as needed
             ];
             setListings(mockData);
